@@ -58,26 +58,26 @@ public class CurrencyV1 {
         //Calculations for Souvenir #1
         int costItem1 = 12; //Cost per item of first souvenir
         int budget1 = 100; //Budget for first item
-        int totalItems1 = budget1/costItem1; //How many items can be purchased
-        budget1 -= totalItems1*costItem1; //How much of the budget is left
+        int  totalItems1 = budget1 / costItem1; //How many items can be purchased
+        double fundsRemaining1 = budget1%costItem1; //How much of the budget is left
 
         System.out.println("Item 1");
         System.out.println("   Cost per item: $" + costItem1 );
         System.out.println("   Budget: $"+ budget1);
         System.out.println("   Total items purchased: " +  totalItems1);
-        System.out.println("   Funds remaining: $"  +  budget1);
+        System.out.println("   Funds remaining: $"  +  fundsRemaining1);
         System.out.println();
 
         //Calculations for Souvenir #2
         double costItem2 = 29.99; //Cost per item of first souvenir
         double budget2 = 500; //Budget for first item
-        int totalItems2 = (int)(budget2/costItem2); //How many items can be purchased
-        budget2 -= totalItems2*costItem2; //How much of the budget is left
+        int  totalItems2 = budget1 / costItem1; //How many items can be purchased
+        double fundsRemaining2 = budget2/costItem2; //How much of the budget is left
         System.out.println("Item 2");
         System.out.println("   Cost per item: $" + costItem2 );
         System.out.println("   Budget: $"+ budget2);
         System.out.println("   Total items purchased: " +  totalItems2);
-        System.out.println("   Funds remaining: $"  +  budget2);
+        System.out.println("   Funds remaining: $"  +  fundsRemaining2);
 
     } // end of main method
 } // end of class

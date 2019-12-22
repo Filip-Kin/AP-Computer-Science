@@ -1,0 +1,11 @@
+## Psuedocode
+- Create `CO2FromWaste` `ArrayList`
+- Randomly generate 50 households using a for loop
+    - Number of people `(int) (Math.random()*7)+1`
+    - Booleans for recycling `Math.random()>.5`
+- For each object in the arraylist
+    - calculate waste emission
+    - calculate emissions saved by recycling
+    - calculate net emissions
+- Print header
+- For loop, print the objects

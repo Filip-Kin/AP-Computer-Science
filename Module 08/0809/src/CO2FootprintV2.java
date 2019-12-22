@@ -21,6 +21,8 @@ public class CO2FootprintV2 {
 
     /**
      * Convert gallons to tons
+     * Precondition: myGallonsUsed is a double greater than or equal to 0
+     * Postcondition: myTonsCO2 is the ton equivalent of myGallonsUsed of CO2
      */
     public void calcTonsCO2()
     {
@@ -29,6 +31,8 @@ public class CO2FootprintV2 {
 
     /**
      * Convert tons to pounds
+     * Precondition: myTonsCO2 is a double greater than or equal to 0
+     * Postcondition: myPoundsCO2 is the pound equivalent of myTonsCO2
      */
     public void convertTonsToPounds()
     {

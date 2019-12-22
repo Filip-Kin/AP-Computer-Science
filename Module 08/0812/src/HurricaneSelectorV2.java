@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -36,14 +37,11 @@ public class HurricaneSelectorV2 {
 
         int[] r = getRange(yr);
 
-        // Arrays for easier statistics
-        double[] c = new double[harr.size()];
-        double[] p = new double[harr.size()];
-        double[] w = new double[harr.size()];
-
         File outFile = new File("ParsedHurricaneDataV2.txt");
         FileWriter out = new FileWriter(outFile);
         out.write("Data Range: "+r[0]+" - "+r[1]+"\n");
+
+        int rangeCount = 0;
 
         // Print main section
         System.out.println("\n\n\t\t\t\t\tHurricanes "+r[0]+" - "+r[1]);
@@ -57,13 +55,27 @@ public class HurricaneSelectorV2 {
                 System.out.printf("%-13d", h.getCategory());
                 System.out.printf("%-16d", h.getPressure());
                 System.out.printf("%8.2f%n", h.getWindSpeed());
-                c[i] = h.getCategory();
-                p[i] = h.getPressure();
-                w[i] = h.getWindSpeed();
-                out.write(h.getYear()+"\t"+h.getName()+"\t"+(int) c[i]+"\t"+(int) p[i]+"\t"+(double) Math.round(w[i]*100)/100+"\n");
+                out.write(h.getYear()+"\t"+h.getName()+"\t"+h.getCategory()+"\t"+h.getPressure()+"\t"+(double) Math.round(h.getWindSpeed()*100)/100+"\n");
+                rangeCount++;
             }
         }
         System.out.println("================================================================");
+
+        // Arrays for easier statistics
+        double[] c = new double[rangeCount];
+        double[] p = new double[rangeCount];
+        double[] w = new double[rangeCount];
+
+        int start = -1;
+        for (i = 0; i<harr.size(); i++) {
+            Hurricane h = harr.get(i);
+            if (h.getYear() >= r[0] && h.getYear() <= r[1]) {
+                if (start == -1) start = i;
+                c[i-start] = h.getCategory();
+                p[i-start] = h.getPressure();
+                w[i-start] = h.getWindSpeed();
+            }
+        }
 
         double[] cS = statistics(c);
         double[] pS = statistics(p);
