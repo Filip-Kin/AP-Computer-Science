@@ -5,11 +5,12 @@ import java.util.List;
  * The Deck class represents a shuffled deck of cards. It provides several
  * operations including initialize, shuffle, deal, and check if empty.
  *
- *
- * < Your Name > < Today's Date >
+ * @author Filip Kin
+ * @version 2020-04-24
  */
-public class Deck {
-   private List<Card> cards; // contains all the cards in the deck
+public class DeckV2 {
+   private List<CardV2> cards; // contains all the cards in the deck
+   static final int SHUFFLE_COUNT = 5;
 
    private int size; // size is the number of not-yet-dealt cards.
                      // Cards are dealt from the top (highest index) down.
@@ -24,10 +25,10 @@ public class Deck {
     * @param suits  is an array containing all of the card suits.
     * @param values is an array containing all of the card point values.
     */
-   public Deck(String[] ranks, String[] suits, int[] values) {
-      cards = new ArrayList<Card>();
+   public DeckV2(String[] ranks, String[] suits, int[] values) {
+      cards = new ArrayList<CardV2>();
       for (int i = 0; i < ranks.length; i++) {
-         cards.add(new Card(ranks[i], suits[i], values[i]));
+         cards.add(new CardV2(ranks[i], suits[i], values[i]));
       }
       size = cards.size();
       shuffle();
@@ -56,8 +57,14 @@ public class Deck {
     * represent the entire deck.
     */
    public void shuffle() {
-      /* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
-      /* For Activity 2, this method will do nothing. */
+      for (int i = 0; i <= SHUFFLE_COUNT; i++) {
+         for (int k = cards.size() - 1; k > 0; k--) {
+             int pos = (int) (Math.random() * (k + 1));  // range 0 to k, inclusive
+             CardV2 tempC = cards.get(pos);
+             cards.set(pos, cards.get(k));
+             cards.set(k, tempC);
+         }
+     }
    }
 
    /**
@@ -66,10 +73,11 @@ public class Deck {
     * @return the card just dealt, or null if all the cards have been previously
     *         dealt.
     */
-   public Card deal() {
-      if (isEmpty()) return null;
+   public CardV2 deal() {
+      if (isEmpty())
+         return null;
       size--;
-      return cards.get(cards.size()-size-1);
+      return cards.get(cards.size() - size - 1);
    }
 
    /**

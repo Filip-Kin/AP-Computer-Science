@@ -1,10 +1,11 @@
 /**
  * Card.java Card represents a playing card.
  *
- * < Your Name > < Today's Date >
+ * @author Filip Kin
+ * @version 2020-04-24
  */
 
-public class Card {
+public class CardV2 {
 
    private String suit; // the suit of the card
    private String rank; // the rank of the card
@@ -17,7 +18,7 @@ public class Card {
     * @param cardSuit       a String value containing the suit of the card
     * @param cardPointValue an int value containing the point value of the card
     */
-   public Card(String rank, String suit, int pointValue) {
+   public CardV2(String rank, String suit, int pointValue) {
       this.rank = rank;
       this.suit = suit;
       this.pointValue = pointValue;
@@ -57,7 +58,7 @@ public class Card {
     * @return true if the rank, suit, and point value of this card are equal to
     *         those of the argument; false otherwise.
     */
-   public boolean matches(Card otherCard) {
+   public boolean matches(CardV2 otherCard) {
       if (rank.compareTo(otherCard.rank()) == 0 && suit.compareTo(otherCard.suit()) == 0
             && pointValue == otherCard.pointValue()) {
          return true;
@@ -76,6 +77,6 @@ public class Card {
     */
    @Override
    public String toString() {
-      return rank+" of "+suit+" (point value = "+pointValue+")";
+      return rank + " of " + suit + " (point value = " + pointValue + ")";
    }
 }

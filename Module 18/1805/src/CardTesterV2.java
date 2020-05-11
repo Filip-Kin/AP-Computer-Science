@@ -1,22 +1,22 @@
 /**
  * This is a class that tests the Card class.
  *
- *  < Your Name >
- *  < Today's Date >
+ * @author Filip Kin
+ * @version 2020-04-24
  */
 
-public class CardTester
-{
+public class CardTesterV2 {
    /**
     * The main method in this class checks the Card operations for consistency.
+    * 
     * @param args is not used.
     */
    public static void main(String[] args) {
 
       // Establish new cards
-      Card aceHearts = new Card("ace", "hearts", 1);
-      Card kingSpades = new Card("king", "spades", 13);
-      Card aceSpades = new Card("ace", "spades", 1);
+      CardV2 aceHearts = new CardV2("ace", "hearts", 1);
+      CardV2 kingSpades = new CardV2("king", "spades", 13);
+      CardV2 aceSpades = new CardV2("ace", "spades", 1);
 
       // Test card 1
       System.out.println("**** Tests Card 1: ace of hearts ****");
@@ -44,8 +44,8 @@ public class CardTester
 
       // Test matches() method
       System.out.println("**** matches Tests ****");
-      System.out.println("matching: "+aceHearts.matches(aceHearts));
-      System.out.println("not matching: "+aceHearts.matches(aceSpades));
+      System.out.println("matching: " + aceHearts.matches(aceHearts));
+      System.out.println("not matching: " + aceHearts.matches(aceSpades));
       System.out.println();
 
    }

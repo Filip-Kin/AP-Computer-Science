@@ -1,5 +1,12 @@
 import java.util.ArrayList;
 
+/**
+ * Test the Contacts class with sorting and searching
+ * 
+ * @author Filip Kin
+ * @version 2020-04-23
+ */
+
 public class ContactTest {
     public static void main(String[] args) {
         ArrayList<Contact> contacts = new ArrayList<Contact>();
